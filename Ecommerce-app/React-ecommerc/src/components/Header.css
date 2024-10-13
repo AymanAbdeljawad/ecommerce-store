@@ -1,0 +1,36 @@
+header {
+  background-color: #09c;
+  padding: 1rem;
+  width:100%;
+  margin:0 auto;
+  margin-buttom:20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 60px;
+}
+
+

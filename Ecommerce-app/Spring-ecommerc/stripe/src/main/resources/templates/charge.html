@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge</title>
+</head>
+<body>
+<script>
+        async function charge() {
+            try {
+                const response = await fetch('/charge', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        // Your RequestChargeDTO data here
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.status === 'success') {
+                    window.location.href = data.url; // Redirect to the URL from response
+                } else {
+                    console.error('Error:', data.message);
+                    // Optionally, redirect to an error page or display a message
+                    window.location.href = '/failure'; // Example failure page
+                }
+            } catch (error) {
+                console.error('Request failed', error);
+                // Optionally, redirect to an error page or display a message
+                window.location.href = '/failure'; // Example failure page
+            }
+        }
+
+        charge();
+    </script>
+</body>
+</html>
